@@ -27,7 +27,7 @@ TOKEN_CACHE = {}
 
 app = Flask(__name__)
 
-KEY_LIMIT = 200
+KEY_LIMIT = 250
 tracker = defaultdict(lambda: [0, time.time()])  # IP based tracking
 
 # Store which accounts have liked which UIDs (temporary memory)
@@ -306,7 +306,7 @@ def handle_requests():
     key = request.args.get("key")
     client_ip = request.remote_addr
 
-    if key != "SulavJi":
+    if key != "SulavOp":
         return jsonify({"error": "Invalid or missing API key 🔑"}), 403
 
     if not uid or not server_name:
@@ -408,7 +408,7 @@ def handle_requests():
 def reset_cache():
     """Reset liked cache (use carefully)"""
     key = request.args.get("key")
-    if key != "SulavJi":
+    if key != "SulavOp":
         return jsonify({"error": "Invalid key"}), 403
     
     global liked_cache

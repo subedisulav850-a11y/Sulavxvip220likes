@@ -177,7 +177,7 @@ async def send_like(encrypted_uid, token, url):
             'Authorization': f"Bearer {token}",
             'Content-Type': "application/x-www-form-urlencoded",
             'X-GA': "v1 1",
-            'ReleaseVersion': "OB54"
+            'ReleaseVersion': "OB55"
         }
         
         async with aiohttp.ClientSession() as session:
@@ -282,7 +282,7 @@ def get_player_info(encrypted_uid, server_name, token):
     elif server_name in {"BR", "US", "SAC", "NA"}:
         url = "https://client.us.freefiremobile.com/GetPlayerPersonalShow"
     else:
-        url = "https://clientbp.ggpolarbear.com/GetPlayerPersonalShow"
+        url = "https://clientbp.ppmainecoonghj.com/GetPlayerPersonalShow"
 
     edata = bytes.fromhex(encrypted_uid)
     headers = {
@@ -290,7 +290,7 @@ def get_player_info(encrypted_uid, server_name, token):
         'Authorization': f"Bearer {token}",
         'Content-Type': "application/x-www-form-urlencoded",
         'X-GA': "v1 1",
-        'ReleaseVersion': "OB54"
+        'ReleaseVersion': "OB55"
     }
 
     try:
@@ -367,7 +367,7 @@ def handle_requests():
     elif server_name in {"BR", "US", "SAC", "NA"}:
         like_url = "https://client.us.freefiremobile.com/LikeProfile"
     else:
-        like_url = "https://clientbp.ggpolarbear.com/LikeProfile"
+        like_url = "https://clientbp.ppmainecoonghj.com/LikeProfile"
 
     # Send likes with smart checking
     result = asyncio.run(send_all_likes(uid, server_name, like_url))

@@ -306,7 +306,7 @@ def handle_requests():
     key = request.args.get("key")
     client_ip = request.remote_addr
 
-    if key != "SulavOp":
+    if key != "Zesty":
         return jsonify({"error": "Invalid or missing API key 🔑"}), 403
 
     if not uid or not server_name:
@@ -408,7 +408,7 @@ def handle_requests():
 def reset_cache():
     """Reset liked cache (use carefully)"""
     key = request.args.get("key")
-    if key != "SulavOp":
+    if key != "Zesty":
         return jsonify({"error": "Invalid key"}), 403
     
     global liked_cache
